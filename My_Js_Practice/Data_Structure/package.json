@@ -1,0 +1,12 @@
+{
+  "name": "data_structure",
+  "version": "1.0.0",
+  "description": "Data structure in JavaScript",
+  "type": "module",
+  "main": "array.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abhishek Sharma",
+  "license": "ISC"
+}

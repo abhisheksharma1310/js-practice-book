@@ -1,0 +1,13 @@
+function steamrollArray(arr) {
+  return arr.reduce((result, element) => {
+    if (Array.isArray(element)) {
+      return result.concat(steamrollArray(element));
+    } else {
+      result.push(element);
+      return result;
+    }
+  }, []);
+}
+
+console.log(steamrollArray([[["a"]], [["b"]]]))
+console.log(steamrollArray([1, [2], [3, [[4]]]]));

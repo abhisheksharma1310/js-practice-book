@@ -1,0 +1,19 @@
+function sumPrimes(num) {
+  let result = 0;
+  while(num > 1){
+    if(prime(num)) result += num;
+    num--;
+  }
+  return result;
+}
+
+function prime(num){
+  let x = num-1;
+  while(x > 1){
+    if(num % x == 0) return false;
+    x--;
+  }
+  return true;
+}
+
+sumPrimes(10);

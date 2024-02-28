@@ -1,0 +1,12 @@
+function spinalCase(str) {
+  // Step 1: Replace spaces and underscores with dashes
+  str = str.replace(/\s+|_+/g, '-');
+
+  // Step 2: Insert a dash between lowercase and uppercase letters
+  str = str.replace(/([a-z])([A-Z])/g, '$1-$2');
+
+  // Convert the string to lowercase
+  return str.toLowerCase();
+}
+
+spinalCase('This Is Spinal Tap');

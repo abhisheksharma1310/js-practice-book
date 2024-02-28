@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mongo Tester</title>
+    </head>
+    <body>
+        <h1>Hello Mongo</h1>
+        <div>
+            <label>Add new user in database </label>
+            <input type="text" name="user" value="Abhishek">
+            <button class="addBtn">Add User</button>
+        </div>
+        <br>
+        <div>
+            <label>Find user from database </label>
+            <input type="text" name="finder" value="Abhishek">
+            <button class="findBtn">Find User</button>
+        </div>
+        <br>
+        <button class="listDataBtn">List Data</button>
+        <br>
+        <br>
+        <div class="output" style="display: block;"></div>
+
+        <script>
+            const userAdd = document.querySelector('input[name="user"]');
+            const addBtn = document.querySelector('.addBtn');
+            const finder = document.querySelector('input[name="finder"]');
+            const findBtn = document.querySelector('.findBtn');
+            const listDataBtn = document.querySelector('.listDataBtn');
+            const output = document.querySelector('.output');
+
+            const endPoint = '/users';
+            
+            addBtn.addEventListener('click', ()=>{
+                const data = {name: userAdd.value};
+                fetch(endPoint, {
+                    method: 'post',
+                    body: JSON.stringify(data),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                });
+            });
+
+            findBtn.addEventListener("click", ()=>{
+                fetch('/user/'+finder.value).then(res => res.json()).then(data => {
+                    createOutput(data);
+                });
+            });
+
+            listDataBtn.addEventListener('click', ()=>{
+                fetch(endPoint).then(res => res.json())
+                .then(data => {
+                    createOutput(data);
+                });
+            });
+
+            function createOutput(data){
+                data.forEach(user => {
+                    const main = document.createElement('div');
+                    const myInput = document.createElement('input');
+                    myInput.setAttribute('type', 'text');
+                    myInput.value = user.name;
+                    main.append(myInput);
+                    const span1 = document.createElement('span');
+                    span1.textContent = `Id: ${user._id}`;
+                    span1.style.marginLeft = '10px';
+                    main.append(span1);
+                    const updateBtn = document.createElement('button');
+                    updateBtn.textContent = 'Update user name';
+                    updateBtn.style.color = 'green';
+                    updateBtn.style.marginLeft = '10px';
+                    main.append(updateBtn);
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = 'Delete user';
+                    deleteBtn.style.color = 'red';
+                    deleteBtn.style.marginLeft = '10px';
+                    main.append(deleteBtn);
+                    output.append(main);
+
+                    updateBtn.addEventListener('click', ()=>{
+                        console.log("PUT: ", myInput.value ,user._id);
+                        user.name = myInput.value;
+                        fetch(endPoint, {
+                            method: 'put',
+                            body: JSON.stringify(user),
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        }).then(res => res.json()).then(data => {
+                            console.log(data);
+                        });
+                    });
+
+                    deleteBtn.addEventListener('click', ()=>{
+                        console.log('Delete: ', user._id);
+                        fetch(endPoint, {
+                            method: 'delete',
+                            body: JSON.stringify(user),
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        }).then(res => res.json()).then(data => {
+                            if(data.status){
+                                main.remove();
+                            }
+                        });
+                    });
+                });
+            }
+        </script>
+    </body>
+</html>

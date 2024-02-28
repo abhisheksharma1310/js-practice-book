@@ -1,0 +1,8 @@
+function destroyer(arr, ...otherArr) {
+  otherArr.forEach((e1) => {
+    arr = arr.filter((e2) => e2 != e1);
+  })
+  return arr;
+}
+
+destroyer([3, 5, 1, 2, 2], 2, 3,5);
