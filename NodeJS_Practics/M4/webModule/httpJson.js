@@ -11,4 +11,4 @@ http.createServer((req, res) => {
     res.write(JSON.stringify(json));    
    //end response or close http connection
    res.end();
-}).listen(8080);
+}).listen(8080, () => console.log("Http server started on http://localhost:8080"));

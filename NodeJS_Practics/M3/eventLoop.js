@@ -1,4 +1,4 @@
-//Event loop first check stack and if all task of stack is completed or it empty then it scheck for que and then execute task 
+//Event loop first check stack and if all task of stack is completed or it empty then it scheck for queue and then execute task 
 console.log("first1");
 
 setTimeout(()=>{

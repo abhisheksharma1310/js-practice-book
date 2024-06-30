@@ -61,7 +61,7 @@ function readLine() {
 function factorial(n) {
   let f = 1;
   for (let i = n; i > 0; i--) {
-    f *= i;
+    f *= i; //f = f*i
   }
   return f;
 }
