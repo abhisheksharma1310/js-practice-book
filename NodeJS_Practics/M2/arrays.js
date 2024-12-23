@@ -9,11 +9,11 @@ const arr1 = [
   { name: "Abhishek Sharma", age: yearOld(1998) },
   ["dance", "sing"],
 ];
-//console.log(arr1);
+console.log(arr1);
 
 const arr2 = arr1;
-arr2[3].name = 'Raj';
-arr2[4][0] = 'play';
+arr2[3].name = "Raj";
+arr2[4][0] = "play";
 console.log(arr2);
 console.log(arr1);
 
@@ -86,7 +86,7 @@ let arr = [];
 
 //sort the array
 const arr4 = [1, 5, 2, 7, 9, 3, 0, "v", "i", "a", "z"];
-//console.log(arr4.sort());
+console.log(arr4.sort());
 
 //reverse the array
 //console.log(arr4.reverse());
