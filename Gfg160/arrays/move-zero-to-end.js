@@ -31,6 +31,19 @@ function pushZerosToEnd(arr) {
   return arr;
 }
 
-console.log(pushZerosToEnd([1, 2, 0, 4, 3, 0, 5, 0]));
-console.log(pushZerosToEnd([10, 20, 30]));
-console.log(pushZerosToEnd([0, 0]));
+function pushZerosToEnd1(arr) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] != 0) {
+      const temp = arr[count];
+      arr[count] = arr[i];
+      arr[i] = temp;
+      count++;
+    }
+  }
+  return arr;
+}
+
+console.log(pushZerosToEnd1([1, 2, 0, 4, 3, 0, 5, 0]));
+console.log(pushZerosToEnd1([10, 20, 30]));
+console.log(pushZerosToEnd1([0, 0]));
