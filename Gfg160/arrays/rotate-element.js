@@ -54,5 +54,10 @@ function rotateArr1(arr, d) {
   return arr;
 }
 
+function rotateArr2(arr, d) {
+  return [...arr.slice(d), ...arr.slice(0, d)];
+}
+
 console.log(rotateArr([1, 2, 3, 4, 5], 2));
 console.log(rotateArr1([1, 2, 3, 4, 5], 2));
+console.log(rotateArr2([1, 2, 3, 4, 5], 2));

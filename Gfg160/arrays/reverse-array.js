@@ -31,6 +31,27 @@ function reverseArray(arr) {
   return arr;
 }
 
+function reverseArray1(arr) {
+  let start = 0;
+  let end = arr.length - 1;
+  while (start < end) {
+    [arr[start], arr[end]] = [arr[end], arr[start]];
+    start++;
+    end--;
+  }
+  return arr;
+}
+
+function reverseArray2(arr) {
+  return arr.reverse();
+}
+
 console.log(reverseArray([1, 4, 3, 2, 6, 5]));
 console.log(reverseArray([4, 5, 2]));
 console.log(reverseArray([1]));
+
+console.log(reverseArray1([1, 4, 3, 2, 6, 5]));
+console.log(reverseArray1([4, 5, 2]));
+console.log(reverseArray1([1]));
+
+console.log(reverseArray2([1, 4, 3, 2, 6, 5]));
