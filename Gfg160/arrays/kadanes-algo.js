@@ -38,7 +38,7 @@ function kadanesAlgo(arr) {
     max = Math.max(max + arr[i], arr[i]);
     res = Math.max(res, max);
   }
-  return max;
+  return res;
 }
 
 console.log(maxSubarraySum([1, 2, 3, -2, 5]));
