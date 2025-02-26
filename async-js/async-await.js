@@ -13,7 +13,7 @@ add1(2, 3).then((data) => {
 });
 
 // async await
-async function greet() {
+async function greet1() {
     let promise = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve("hello");
@@ -23,10 +23,10 @@ async function greet() {
     let res = await promise;
     console.log(res);
 }
-greet();
+greet1();
 
 // async await with try catch
-async function greet() {
+async function greet2() {
     try {
         let promise = new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -40,7 +40,7 @@ async function greet() {
         console.log(err);
     }
 }
-greet();
+greet2();
 
 // sequential execution
 function resolveHello() {
@@ -59,10 +59,37 @@ function resolveWorld() {
     })
 }
 
-async function greet() {
+async function sequentialExecution() {
     console.log("sequential execution")
     let hello = await resolveHello();
     let world = await resolveWorld();
     console.log(hello + " " + world);
 }
-greet();
+sequentialExecution();
+
+// concurrent execution
+async function concurrentExecution() {
+    console.log("concurrent execution");
+    let hello = resolveHello();
+    let world = resolveWorld();
+    console.log(await hello);
+    console.log(await world);
+}
+concurrentExecution();
+
+// paralel execution
+function paralelExecution() {
+    Promise.all([
+        (async () => console.log(await resolveHello()))(),
+        (async () => console.log(await resolveWorld()))(),
+    ]);
+}
+
+// 
+async function parallelExecution1() {
+    await Promise.all([
+        (async () => console.log(await resolveHello()))(),
+        (async () => console.log(await resolveWorld()))(),
+    ]);
+    console.log("Finally");
+}
