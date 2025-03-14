@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>Users:</div>
+    <ul>
+        <li>John</li>
+        <li>Pete</li>
+    </ul>
+    <!-- For each of the following, give at least one way of how to access them:
+The <div> DOM node?
+The <ul> DOM node?
+The second <li> (with Pete)?-->
+    <script>
+        // 1. div
+        document.body.children[0];
+        document.body.firstElementChild;
+        document.body.childNodes[1];
+        // 2. ul
+        document.body.children[1];
+        document.body.lastElementChild;
+        // 3. li
+        document.body.children[1].children[1];
+        document.body.lastElementChild.lastElementChild;
+        document.body.lastElementChild.children[1];
+    </script>
+</body>
+
+</html>
