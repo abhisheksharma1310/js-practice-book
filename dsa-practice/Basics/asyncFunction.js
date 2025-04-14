@@ -3,26 +3,28 @@
  */
 
 const myPromise = new Promise((resolve, reject) => {
-    //resolve("yes");
-    setTimeout(() => {
-        reject("resolve");
-    }, 5000);
+  //resolve("yes");
+  setTimeout(() => {
+    reject("resolve");
+  }, 5000);
 });
 
-myPromise.then((value) => {
+myPromise
+  .then((value) => {
     if (value === "yes") {
-        console.log("v: ", value);
-        return 1
+      console.log("v: ", value);
+      return 1;
     } else {
-        return 0
+      return 0;
     }
-}).then((value) => {
+  })
+  .then((value) => {
     if (value === 1) {
-        console.log("🏆");
+      console.log("🏆");
     } else {
-        console.log("😊");
+      console.log("😊");
     }
-}).catch((value) => {
+  })
+  .catch((value) => {
     console.log("😒 ", value);
-})
-
+  });
