@@ -73,3 +73,21 @@ const files = fs
   .map((file) => newFolderPath + "/" + file)
   .filter((file) => fs.lstatSync(file).isFile());
 console.log("Files in folder:", files);
+
+/**
+ * Use fs.rename() or fs.renameSync() or fsPromises.rename() to rename
+folder. The first parameter is the current path, the second the new path:
+ */
+
+const oldFolderPath = __dirname + "/newFolder";
+const newFolderName = __dirname + "/renamedFolder";
+
+async function renameFolder() {
+  try {
+    await fs.promises.rename(oldFolderPath, newFolderName);
+    console.log("Folder renamed successfully");
+  } catch (error) {
+    console.error("Error renaming folder:", error);
+  }
+}
+renameFolder();
