@@ -5,10 +5,10 @@ function convertHTML(str) {
     "<": "&lt;",
     ">": "&gt;",
     '"': "&quot;",
-    "'": "&apos;"
-  }
-  for(let i=0; i<str.length; i++){
-    if(html.hasOwnProperty(str1[i])){
+    "'": "&apos;",
+  };
+  for (let i = 0; i < str.length; i++) {
+    if (html.hasOwnProperty(str1[i])) {
       str1[i] = html[str1[i]];
     }
   }
@@ -16,4 +16,4 @@ function convertHTML(str) {
   return str1.join("");
 }
 
-convertHTML("Dolce & Gabbana");
+console.log(convertHTML("Dolce & Gabbana"));

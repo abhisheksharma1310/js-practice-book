@@ -3,14 +3,14 @@ function pairElement(str) {
     A: "T",
     T: "A",
     C: "G",
-    G: "C"
-  }
+    G: "C",
+  };
   const result = [];
-  for(let i=0; i<str.length; i++){
+  for (let i = 0; i < str.length; i++) {
     const pair = [str[i], basePair[str[i]]];
     result.push(pair);
   }
   return result;
 }
 
-pairElement("CTCTA");
+console.log(pairElement("CTCTA"));
