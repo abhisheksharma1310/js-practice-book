@@ -34,7 +34,6 @@ function displayData() {
                     <td>${user.website}</td>
                 </tr>`;
           })
-          .join("")}
-        </tr>`;
+          .join("")}`;
   document.body.appendChild(table);
 }
