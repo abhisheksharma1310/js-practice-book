@@ -1,0 +1,8 @@
+body {
+  background-color: #aabbcc;
+}
+
+.circle {
+  border-radius: 50%;
+  border: solid 10px red;
+}
