@@ -10,9 +10,13 @@ function selectioSort(arr) {
       if (arr[j] < arr[minIndex]) minIndex = j;
     }
     // delete the minimum value
-    const minValue = arr.splice(minIndex, 1);
+    //const minValue = arr.splice(minIndex, 1);
     // insert deleted value to the left
-    arr.splice(i, 0, minValue[0]);
+    //arr.splice(i, 0, minValue[0]);
+    // improved method
+    const temp = arr[minIndex];
+    arr[minIndex] = arr[i];
+    arr[i] = temp;
   }
 }
 
