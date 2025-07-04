@@ -12,7 +12,7 @@ const movies = [
 
 function sortMovies(array) {
   array
-    .filter((a) => a.year >= 2018)
+    .filter((a) => a.year >= 2018 && a.rating > 4)
     .sort((a, b) => b.rating - a.rating)
     .map((a) => console.log(`${a.title}: ${a.rating}`));
 }

@@ -1,4 +1,4 @@
-thi/**
+/**
  * Objective
 Today we're discussing scope. Check out the Tutorial tab for learning materials and an instructional video!
 
@@ -48,11 +48,11 @@ process.stdin.setEncoding('utf-8');
 let inputString: string = '';
 let inputLines: string[] = [];
 let currentLine: number = 0;
-process.stdin.on('data', function(inputStdin: string): void {
+process.stdin.on('data', function (inputStdin: string): void {
     inputString += inputStdin;
 });
 
-process.stdin.on('end', function(): void {
+process.stdin.on('end', function (): void {
     inputLines = inputString.split('\n');
     inputString = '';
     main();
@@ -86,12 +86,12 @@ function main() {
     // Enter your code here
     const n = Number(readLine());
     let arr = [];
-    for(let i=0; i<n; i++) {
+    for (let i = 0; i < n; i++) {
         arr.push(readLine());
     }
     let ar = arr[0].split(" ");
     let arr1 = ar.map((el) => Number(el));
-    
+
     const diff = new Difference(arr1);
     diff.computeDifference();
     console.log(diff.maximumDifference);
