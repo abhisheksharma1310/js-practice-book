@@ -35,16 +35,26 @@ app.get("/api/", function (req, res) {
 
 ///api/:date
 app.get("/api/:date", function (req, res) {
-  const { date } = req.params;
-  const isDate = isNaN(date) ? new Date(date) : new Date(Number(date));
-  if (isDate) {
-    const dateString = {
-      unix: isDate.getTime(),
-      utc: isDate.toUTCString(),
-    };
-    res.json(dateString);
-  } else {
+  let { date } = req.params;
+
+  // Check if date is purely numeric (timestamp in milliseconds or seconds)
+  if (!isNaN(date)) {
+    // Convert to number (assume milliseconds if 13 digits, else seconds)
+    date = Number(date);
+    if (date.toString().length === 10) {
+      date *= 1000; // convert seconds to milliseconds
+    }
+  }
+
+  const parsedDate = new Date(date);
+
+  if (isNaN(parsedDate.getTime())) {
     res.json({ error: "Invalid Date" });
+  } else {
+    res.json({
+      unix: parsedDate.getTime(),
+      utc: parsedDate.toUTCString(),
+    });
   }
 });
 
