@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8"/>
+        <title>Day 32 Challange</title>
+
+        <style>
+            *{
+                margin:0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            main{
+                height: auto;
+                width: 100vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+            }
+            header{
+                margin: 40px;
+            }
+            nav,ul {
+                width: auto;
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+            }
+            ul{
+                list-style-type: none;
+                border: 1px solid gray;
+                background-color: bisque;
+                padding: 20px;
+                border-radius: 5px;
+            }
+            li{
+                cursor: pointer;
+            }
+            section {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+            img{
+                width: 300px;
+                height: 300px;
+                border-radius: 5px;
+            }
+            footer{
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <header>
+                <nav>
+                    <ul class="tab">
+                        <li data-category="all">All</li>
+                        <li data-category="nature">Nature</li>
+                        <li data-category="animals">Animals</li>
+                        <li data-category="places">Places</li>
+                        <li data-category="celebrity">Celebrity</li>
+                    </ul>
+                </nav>
+            </header>
+            <section class="nature" data-category="nature">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Mountain Landscape">
+                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Forest Path">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Beach Sunset">
+                <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e" alt="River in Forest">
+                <img src="https://images.unsplash.com/photo-1441829266145-bc1f3d0b8d1d" alt="Autumn Leaves">
+                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca" alt="Snowy Mountains">
+            </section>
+
+            <section class="animals" data-category="animals">
+                <img src="https://images.unsplash.com/photo-1555685812-4b943f1cb0eb" alt="Tiger">
+                <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d" alt="Elephant">
+                <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d" alt="Dog">
+                <img src="https://images.unsplash.com/photo-1504203700686-0f3b3e5f5d9d" alt="Bird">
+                <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8" alt="Cat">
+                <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2" alt="Horse">
+            </section>
+
+            <section class="places" data-category="places">
+                <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad" alt="Paris">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="New York City">
+                <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d" alt="Tokyo">
+                <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad" alt="Santorini">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Swiss Alps">
+                <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde" alt="Desert Dunes">
+            </section>
+
+           <section class="celebrity" data-category="celebrity">
+                <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e" alt="Celebrity Portrait 1">
+                <img src="https://images.unsplash.com/photo-1603415526960-f8f0a1f0b4d6" alt="Celebrity Portrait 2">
+                <img src="https://images.unsplash.com/photo-1603415526960-3f3e4e3e3e3e" alt="Celebrity Portrait 3">
+                <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e" alt="Celebrity Portrait 4">
+                <img src="https://images.unsplash.com/photo-1603415526960-f8f0a1f0b4d6" alt="Celebrity Portrait 5">
+                <img src="https://images.unsplash.com/photo-1603415526960-3f3e4e3e3e3e" alt="Celebrity Portrait 6">
+            </section>
+
+            <footer>
+                ©️My Gallery
+            </footer>
+        </main>
+
+
+        <!-- script -->
+         <script>
+            const tab = document.querySelector(".tab");
+            const sections = document.querySelectorAll("section");
+
+            tab.addEventListener("click", (event) => {
+                const category = event.target.dataset.category;
+                if(category){
+                    filterImage(category);
+                }
+            });
+
+            function filterImage(category){
+                sections.forEach((section) => {
+                    if(section.dataset.category === category || category === "all"){
+                        section.style.display = "block";
+                    } else {
+                        section.style.display = "none"
+                    }
+                })
+            }
+
+         </script>
+    </body>
+</html
